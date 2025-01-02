@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('age');
             $table->text('address')->nullable();
             $table->string('avatar', 255)->nullable();
-            $table->uuid('user_id');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
