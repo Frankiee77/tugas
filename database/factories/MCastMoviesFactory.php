@@ -17,7 +17,9 @@ class MCastMoviesFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->numberBetween(1, 5)
+            'id' => $this->faker->numberBetween(1, 5),
+            'movie_id' => $this->faker->numberBetween(1, 5),
+            'cast_id' => $this->faker->numberBetween(1, 5)
         ];
     }
 }

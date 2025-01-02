@@ -6,14 +6,12 @@ use App\Models\MUsers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MProfiles extends Model
+class MRoles extends Model
 {
     use HasFactory;
 
-    protected $table = 'm_profiles';
-
     public function user()
 	{
-		return $this->belongsTo(MUsers::class);
+		return $this->hasOne(MUsers::class);
 	}
 }
