@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('poster', 255)->nullable();
             $table->string('year', 8);
             $table->boolean('available')->default(true);
-            $table->foreignId('genre_id')->constrained('m_genres')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('genre_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
