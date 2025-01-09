@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('poster', 255)->nullable();
             $table->string('year', 8);
             $table->boolean('available')->default(true);
-            $table->foreignId('genre_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('genre_id'); // Use uuid for the role_id column
+            $table->foreign('genre_id')->references('id')->on('m_genres')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

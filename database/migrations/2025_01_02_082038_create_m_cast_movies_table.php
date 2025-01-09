@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('m_cast_movies', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade'); 
-            $table->foreignId('cast_id')->constrained()->onDelete('cascade');
+            $table->uuid('movie_id'); // Use uuid for the role_id column
+            $table->foreign('movie_id')->references('id')->on('m_movies')->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('cast_id'); // Use uuid for the role_id column
+            $table->foreign('cast_id')->references('id')->on('m_casts')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

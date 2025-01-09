@@ -15,8 +15,10 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->text('review');
             $table->integer('rating');
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->uuid('movie_id'); // Use uuid for the role_id column
+            $table->foreign('movie_id')->references('id')->on('m_movies')->onDelete('cascade')->onUpdate('cascade');
+            $table->uuid('user_id'); // Use uuid for the role_id column
+            $table->foreign('user_id')->references('id')->on('m_users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
